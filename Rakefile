@@ -7,17 +7,17 @@ task :build do
 end
 
 task :install do
-    sh "gem install symbolize-" + IO.read('version.txt') + ".gem"
+    sh "gem install symbolization-" + IO.read('version.txt') + ".gem"
 end
 
 task :clean do
-    sh "gem uninstall symbolize"
+    sh "gem uninstall symbolization"
     sh "rm *.gem"
 end
 
 task :test do
-    sh "./test/test-symbolize.rb"
-    sh "rubocop lib/symbolize.rb"
+    sh "./test/test-symbolization.rb"
+    sh "rubocop lib/symbolization.rb"
 end
 
 task :publish do
@@ -33,5 +33,5 @@ task :publish do
     sh "github_changelog_generator"
     sh "git commit -am \"Update Changelog\""
     sh "git push origin master"
-    sh "gem push symbolize-" + IO.read('version.txt') + ".gem"
+    sh "gem push symbolization-" + IO.read('version.txt') + ".gem"
 end
